@@ -6,7 +6,7 @@ export @cuda, cudaconvert, cufunction, dynamic_cufunction, nextwarp, prevwarp
 ## high-level @cuda interface
 
 const MACRO_KWARGS = [:dynamic, :launch]
-const COMPILER_KWARGS = [:kernel, :name, :always_inline, :minthreads, :maxthreads, :blocks_per_sm, :maxregs]
+const COMPILER_KWARGS = [:kernel, :name, :always_inline, :minthreads, :maxthreads, :blocks_per_sm, :maxregs, :fastmath]
 const LAUNCH_KWARGS = [:cooperative, :blocks, :threads, :shmem, :stream]
 
 
@@ -304,6 +304,7 @@ The following keyword arguments are supported:
   multiprocessor
 - `maxregs`: the maximum number of registers to be allocated to a single thread (only
   supported on LLVM 4.0+)
+- `fastmath`: enable the use of less precise square roots and flushing denormals
 - `name`: override the name that the kernel will have in the generated code
 - `always_inline`: inline all function calls in the kernel
 
